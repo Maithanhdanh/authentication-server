@@ -1,0 +1,46 @@
+<!-- status of all server -->
+###
+GET http://localhost:5000/status
+
+<!-- status of auth -->
+###
+GET http://localhost:5000/auth/status
+
+###
+GET http://localhost:5000/auth/posts
+Authorization: Bearer U2FsdGVkX18uVQiMvEAdSZvxANO4E1O8ItXFj7jjcprHIoVa5C7yXxlP2TYtWSZrCshWLfPsyEyxuUk5FAUkJ0L/Qs8bnkRH5tyFs9c6u8xO4DmMtavD9/eW7NXG2vzASSabOaMl/+z3ZH63IDbYRIEo0gJcGI+tIPyq+k1GQhBi4faM198Yb6F7eQpHW1nLChA1JLvqewoC1nJidiBjyfnbV/+4mXbsHpE21UEJClnHYzBKyFIsztH6hPkd00JzksBAOZ8EfNgq8kUTOldE22oTskhv9E9T5/FCcToALYbTF14rY9q036FGk/sADOhUOgmrjRs9DurFyVMwF6DxYQ==
+
+###
+POST http://localhost:5000/auth/token
+Content-Type: application/json
+
+{
+    "token":"U2FsdGVkX1/Wy+GegFrwLN8Kr5aEa6G2rfqjjWtrPMA8xKCT23cH9jHEhF7injpf5bRDJ5a4VKWpwZeXJvIxUIHdaPkiNHw147ED58+uB3JiEUQ/+B+a71l/ChdKTgwXgrOYMkOiAg2yjzAAKKSuUhBqdffXaxTa4SCHN+PwPU6thGAKDocbOBjT0J1ZHOFUFYCjj+I0DLNYz6wUafLblc0f0UfksBOboXX34LJPMM+SQ0HaEUP7028wO6rqBud0i97a+BPWTpfqPF6c53edgO12BNyViPtOt1lz27b+5oTx6981H4zdzW0bECnGXX17hWXBmRTKuEUKeYzfVvFzSw=="
+}
+
+###     
+POST http://localhost:5000/auth/login
+Content-Type: application/json
+
+{
+    "username": "Dantis"
+}
+
+###     
+POST http://localhost:5000/auth/register
+Content-Type: application/json
+
+{
+    "name": "Dantis",
+    "email": "dawlash1996@gmail.com",
+    "password": "Danh0948010531"
+}
+
+###     
+DELETE http://localhost:5000/auth/logout
+Content-Type: application/json
+
+{
+    "token": "U2FsdGVkX1/Wy+GegFrwLN8Kr5aEa6G2rfqjjWtrPMA8xKCT23cH9jHEhF7injpf5bRDJ5a4VKWpwZeXJvIxUIHdaPkiNHw147ED58+uB3JiEUQ/+B+a71l/ChdKTgwXgrOYMkOiAg2yjzAAKKSuUhBqdffXaxTa4SCHN+PwPU6thGAKDocbOBjT0J1ZHOFUFYCjj+I0DLNYz6wUafLblc0f0UfksBOboXX34LJPMM+SQ0HaEUP7028wO6rqBud0i97a+BPWTpfqPF6c53edgO12BNyViPtOt1lz27b+5oTx6981H4zdzW0bECnGXX17hWXBmRTKuEUKeYzfVvFzSw=="
+}
+

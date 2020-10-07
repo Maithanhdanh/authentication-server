@@ -1,5 +1,6 @@
 
 const CryptoJS = require("crypto-js");
+require('dotenv').config();
 
 const secret = process.env.SECRET;
 

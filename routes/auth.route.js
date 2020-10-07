@@ -28,6 +28,6 @@ router.route("/token").get(validate.token(),controller.GetToken)
 router.route("/status").get((req, res) => res.send("OK"))
 router.route("/logout").get(validate.token(),controller.RemoveToken)
 
-router.route('/api/verify').get(validate.token(),controller.Verify)
+router.route('/api/verify').get(validate.oAuth(),controller.Verify)
 
 module.exports = router

@@ -7,7 +7,7 @@ module.exports = {
             instances: 1, // default 1
             autorestart: true,
             exec_mode: "cluster", // allow scale up app
-            watch: true,
+            watch: false,
             env: {
                 NODE_ENV: "production",
             },
@@ -32,9 +32,8 @@ module.exports = {
                 SESSION_SECRET: "Dantisdeptrai",
                 ACCESS_TOKEN: "Vuslacontrai42109",
                 REFRESH_TOKEN: "Vusdeophailacongai42109",
-                AUDIENCE: "http://authenticationServer",
                 ISSUER: "Dantis",
-                PORT: "5000",
+		        MONGODB_URL:"mongodb://root:dantisvus@13.212.81.27:27017/authentication?authSource=admin",
             },
         },
     },

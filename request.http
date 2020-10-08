@@ -1,6 +1,6 @@
 <!-- status of all server -->
 ###
-GET http://localhost:5000/status
+GET http://13.212.81.27:5000/status
 
 <!-- status of auth -->
 ###
@@ -19,11 +19,12 @@ Content-Type: application/json
 }
 
 ###     
-POST http://localhost:5000/auth/login
+POST http://13.212.81.27:5000/auth/login
 Content-Type: application/json
 
 {
-    "username": "Dantis"
+    "email": "vuslacontrai@gmail.com",
+    "password": "123123123"
 }
 
 ###     

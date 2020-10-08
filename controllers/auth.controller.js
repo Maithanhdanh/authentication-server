@@ -89,6 +89,7 @@ exports.GetToken = async (req, res) => {
     resReturn.success(res, 200, {
         accessToken: accessToken.token,
         expiresIn: accessToken.expiresIn,
+        user:user
     })
 }
 

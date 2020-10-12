@@ -8,8 +8,8 @@ const passport = require("passport")
 const User = require("../models/user.model")
 const initialize = require("./passport")
 const cookieParser = require("cookie-parser")
-console.log(process.env)
-console.log(process.env.ACCESS_TOKEN)
+
+console.log(process.)
 app.use(cors({ origin: true, credentials: true }))
 app.use(express.json())
 app.use(cookieParser());

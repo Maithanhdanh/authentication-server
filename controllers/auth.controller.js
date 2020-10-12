@@ -60,7 +60,7 @@ exports.Login = async (req, res) => {
 
     res.cookie("refresh_token", refreshToken.token, {
         httpOnly: true,
-        maxAge: 24 * 2 * 3600 * 100,
+        maxAge: 24 * 1.5 * 60 * 60 * 1000,
     })
 
     resReturn.success(res, 200, {
@@ -89,7 +89,7 @@ exports.GetToken = async (req, res) => {
     resReturn.success(res, 200, {
         accessToken: accessToken.token,
         expiresIn: accessToken.expiresIn,
-        user:user
+        user:user,
     })
 }
 

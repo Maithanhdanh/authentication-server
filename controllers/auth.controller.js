@@ -74,7 +74,7 @@ exports.GetToken = async (req, res) => {
     const errors = validationResult(req)
     let resReturn = new responseReturn()
     if (!errors.isEmpty()) {
-        resReturn.failure(res, 500, errors.array())
+        resReturn.failure(res, 401, errors.array())
         return
     }
     

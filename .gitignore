@@ -2,3 +2,9 @@
 node_modules
 package-lock.json
 request.http
+*.config.*
+*.log
+ecosystem.config.js
+request.http
+combined.log
+ecosystem.config.js

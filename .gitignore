@@ -1,4 +1,4 @@
-.env
+*.env
 node_modules
 package-lock.json
 request.http
@@ -7,4 +7,3 @@ request.http
 ecosystem.config.js
 request.http
 combined.log
-ecosystem.config.js

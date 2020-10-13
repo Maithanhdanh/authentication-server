@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken")
 const { encrypt, decrypt } = require("./encryption.util")
+const ENV_VAR = require('../config/vars')
 
 const ACCESS_TOKEN = "access_token"
 const REFRESH_TOKEN = "refresh_token"
@@ -14,9 +15,9 @@ const generateRefreshToken = (userId) =>
     generateToken(userId, TokenType.REFRESH_TOKEN)
 
 const generateToken = (userId, type = TokenType.REFRESH_TOKEN) => {
-    const audience = process.env.AUDIENCE
-    const issuer = process.env.ISSUER
-    const secret = process.env.SECRET
+    const audience = ENV_VAR.AUDIENCE
+    const issuer = ENV_VAR.ISSUER
+    const secret = ENV_VAR.SECRET
 
     const expiresIn = type === TokenType.ACCESS_TOKEN ? "15m" : "2d"
 
@@ -35,7 +36,7 @@ const generateToken = (userId, type = TokenType.REFRESH_TOKEN) => {
 }
 
 const verifyToken = (token) => {
-    const secret = process.env.SECRET
+    const secret = ENV_VAR.SECRET
     const decryptedToken = decrypt(token) 
     const verifiedToken = jwt.verify(decryptedToken, secret, (err, user) => {
         if (err)
@@ -53,14 +54,14 @@ const verifyToken = (token) => {
 }
 const getTokenType = (token) => {
     const decryptedToken = decrypt(token)
-    const secret = process.env.SECRET
+    const secret = ENV_VAR.SECRET
 
     return jwt.verify(decryptedToken, secret).type
 }
 
 const parseTokenAndGetUserId = (token) => {
     const decryptedToken = decrypt(token)
-    const secret = process.env.SECRET
+    const secret = ENV_VAR.SECRET
 
     const decoded = jwt.verify(decryptedToken, secret, (err, user) => {
         if (err)

@@ -8,8 +8,8 @@ const passport = require("passport")
 const User = require("../models/user.model")
 const initialize = require("./passport")
 const cookieParser = require("cookie-parser")
-console.log(process.env)
-console.log(process.env.ACCESS_TOKEN)
+const ENV_VAR = require("./vars")
+
 app.use(cors({ origin: true, credentials: true }))
 app.use(express.json())
 app.use(cookieParser());
@@ -23,7 +23,7 @@ app.use(passport.session())
 app.use(morgan("dev"))
 app.use(
     session({
-        secret: process.env.SESSION_SECRET,
+        secret: ENV_VAR.SESSION_SECRET,
         resave: false,
         saveUninitialized: false,
     })

@@ -37,11 +37,16 @@ exports.Register = async (req, res, next) => {
         const accessToken = generateAccessToken(newUser._id.toString())
         const refreshToken = generateRefreshToken(newUser._id.toString())
 
+        res.cookie("refresh_token", refreshToken.token, {
+            httpOnly: true,
+            maxAge: 24 * 1.5 * 60 * 60 * 1000,
+        })
+    
         resReturn.success(res, 200, {
             message: "User is added",
             user: doc,
-            accessToken,
-            refreshToken,
+            accessToken: accessToken.token,
+            expiresIn: accessToken.expiresIn,
         })
     } catch (errors) {
         console.log(errors)
@@ -119,10 +124,10 @@ exports.Verify = async (req, res) => {
 
     const authHeader = req.headers["authorization"]
     const token = authHeader && authHeader.split(" ")[1]
-    if (token == null) return resReturn.success(res, 401, "Invalid Token")
+    if (token == null) return resReturn.failure(res, 401, "Missing Token")
 
     const verifiedToken = verifyToken(token)
-    if (verifiedToken.error) return resReturn.success(res, 403, "Invalid Token")
+    if (verifiedToken.error) return resReturn.failure(res, 403, "Invalid Token")
 
     resReturn.success(res, 200, {userId:verifiedToken.user.sub})
 }

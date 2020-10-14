@@ -1,11 +1,9 @@
-if(process.env.NODE_ENV !== 'production'){
-    require('dotenv').config();
-}
+const ENV_VAR = require('./vars')
 
 const mongoose = require('mongoose');
 const logger = require('./logger');
 
-const URL = process.env.MONGODB_URL;
+const URL = ENV_VAR.MONGODB_URL;
 
 mongoose.Promise = Promise;
 

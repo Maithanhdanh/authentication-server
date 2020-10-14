@@ -1,8 +1,8 @@
 
 const CryptoJS = require("crypto-js");
-require('dotenv').config();
+const ENV_VAR = require('../config/vars')
 
-const secret = process.env.SECRET;
+const secret = ENV_VAR.SECRET;
 
 const encrypt= (string) => CryptoJS.AES.encrypt(string, secret).toString();
 

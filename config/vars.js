@@ -1,7 +1,7 @@
 const path = require("path")
 console.log(process.env.NODE_ENV)
-if (process.env.NODE_ENV.trim() !== "production") {
-	if (process.env.NODE_ENV.trim() === "test") {
+if (process.env.NODE_ENV !== "production") {
+	if (process.env.NODE_ENV === "test") {
 		require("dotenv").config({
 			path: path.join(__dirname, "../test.env"),
 		})

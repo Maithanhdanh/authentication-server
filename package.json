@@ -4,13 +4,14 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"start": "set NODE_ENV=development && nodemon index.js",
+		"start": "nodemon index.js",
 		"pretest": "set NODE_ENV=test",
-		"test": "set NODE_ENV=test && jest --silent --runInBand --testEnvironment=node --detectOpenHandles --runInBand --forceExit"
+		"test": "NODE_ENV=test jest --silent --runInBand --testEnvironment=node --detectOpenHandles --runInBand --forceExit"
 	},
 	"author": "Dantis",
 	"license": "ISC",
 	"dependencies": {
+		"aws-sdk": "^2.771.0",
 		"bcrypt": "^5.0.0",
 		"bcryptjs": "^2.4.3",
 		"cookie-parser": "^1.4.5",

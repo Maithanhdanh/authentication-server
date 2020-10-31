@@ -3,12 +3,13 @@ const server = require("../../index")
 const request = require("supertest")
 const mongoose = require("mongoose")
 
+console.log(process.env)
 beforeAll(async () => {
-	await User.deleteMany({})
 	jest.useFakeTimers()
 })
 
-afterAll(() => {
+afterAll(async () => {
+	await User.deleteMany({})
     server.close();
 })
 

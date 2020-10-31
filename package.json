@@ -4,7 +4,7 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"start": "nodemon index.js",
+		"start": "NODE_ENV=production nodemon index.js",
 		"pretest": "set NODE_ENV=test",
 		"test": "NODE_ENV=test jest --silent --runInBand --testEnvironment=node --detectOpenHandles --runInBand --forceExit"
 	},

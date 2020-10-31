@@ -2,8 +2,6 @@ const LocalStrategy = require("passport-local").Strategy
 const User = require("../models/user.model")
 const bcrypt = require('bcryptjs')
 
-require("dotenv").config()
-
 function initialize(passport) {
     const authenticateUser = async (email, password, done) => {
         const user = await User.getUserDetail(email)
